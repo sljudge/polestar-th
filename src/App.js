@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+import Header from './components/utilities/header';
 import './App.css';
+import logo from './assets/images/polestar_logo.png'
+import SearchContainer from './components/features/searchContainer';
+import ResultsContainer from './components/features/resultsContainer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="bg-gray-50 min-h-screen">
+        <Header logo={logo} alt="Polestar" />
+        <SearchContainer />
+        <ResultsContainer />
+      </div>
+    </>
   );
 }
 
