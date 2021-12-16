@@ -3,10 +3,11 @@ import Card from '../../utilities/card'
 
 /**
  * Renders custom Header
- * @param {{value: string, name:string, type:string, className:string}} props 
-
+ * @param {{className:string}} props 
+ * @param className - optional className to be added to default
 */
 const ResultsContainer = props => {
+    const { className = "" } = { ...props }
 
     const data = [
         {
@@ -30,10 +31,11 @@ const ResultsContainer = props => {
     ]
 
     return (
-        <div className="flex flex-wrap justify-center items-center p-4 bg-gray-200">
+        <div className={`flex flex-wrap justify-center items-start p-4 bg-gray-200 ${className}`}>
             {
-                data.map(item => (
+                data.map((item, i) => (
                     <Card
+                        key={i}
                         title={item.title}
                         author={item.author}
                         year={item.year}

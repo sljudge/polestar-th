@@ -3,15 +3,17 @@ import './App.css';
 import logo from './assets/images/polestar_logo.png'
 import SearchContainer from './components/features/searchContainer';
 import ResultsContainer from './components/features/resultsContainer';
+import Page from './components/utilities/page';
 
 function App() {
+
   return (
     <>
-      <div className="bg-gray-50 min-h-screen">
+      <Page>
         <Header logo={logo} alt="Polestar" />
         <SearchContainer />
-        <ResultsContainer />
-      </div>
+        <ResultsContainer className="flex-grow" />
+      </Page>
     </>
   );
 }

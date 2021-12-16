@@ -11,7 +11,7 @@ import placeholder from '../../../assets/images/placeholder_portrait.png'
  * @param className - optional className to be added to default 'header'
 */
 const Card = props => {
-    const { imgSrc = placeholder, title, author, year, className } = { ...props }
+    const { imgSrc = placeholder, title, author, year, className = "" } = { ...props }
     return (
         <div className={`w-40 bg-gray-50 shadow-lg m-8 ${className}`}>
             <img src={imgSrc} alt="" />

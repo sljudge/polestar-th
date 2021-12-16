@@ -8,7 +8,7 @@ import React from 'react'
  * @param className - optional className to be added to default 'header'
 */
 const Header = props => {
-    const { logo, alt, className } = { ...props }
+    const { logo, alt, className = "" } = { ...props }
     return (
         <header className={`header ${className}`}>
             <img src={logo} alt={alt} className="mx-auto" />
