@@ -9,7 +9,7 @@ const initialState = {
 export const getBooks = createAsyncThunk(
     'books/getBooks',
     async (query) => {
-        const response = await fetch('http://openlibrary.org/search.json?q=' + query);
+        const response = await fetch(`http://openlibrary.org/search.json?q=${query}&limit=10`);
         const data = await response.json()
         return data.docs;
     }
@@ -28,7 +28,11 @@ export const bookSlice = createSlice({
             })
             .addCase(getBooks.fulfilled, (state, action) => {
                 state.status = 'idle';
-                state.booksData = action.payload;
+                state.booksData = Array.from(Object.values(action.payload));
+            })
+            .addCase(getBooks.rejected, (state, action) => {
+                state.status = 'rejected';
+                state.booksData = []
             });
     },
 });

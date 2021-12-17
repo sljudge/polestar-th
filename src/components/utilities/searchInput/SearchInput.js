@@ -6,13 +6,23 @@ import React from 'react'
  * @param name - Name for input
  * @param ariaLabel - Arial label 
  * @param onChange - function for onChange handler
+ * @param onSubmit - function to be called on submission
  * @param className - optional className to be added to default 'input'
 */
 const SearchInput = props => {
-    const { name, ariaLabel, onChange, className = "" } = { ...props }
+    const { value = "", name, ariaLabel, onChange, onSubmit, className = "" } = { ...props }
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            onSubmit()
+        }
+    }
+
     return (
         <input
             onChange={onChange}
+            onKeyPress={handleKeyPress}
+            value={value}
             type="search"
             name={name}
             role="search"

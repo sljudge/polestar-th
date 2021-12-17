@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import CTA from '../../utilities/cta/CTA';
 import SearchInput from '../../utilities/searchInput';
@@ -24,24 +24,25 @@ const SearchContainer = props => {
         []
     )
 
-    const handleCTAClick = () => debouncedGetBooks(queryString)
-
-    // useEffect(() => {
-    //     debouncedGetBooks(queryString)
-    // }, [queryString, debouncedGetBooks])
+    const handleSubmit = () => {
+        setQueryString(queryString.trim())
+        debouncedGetBooks(queryString)
+    }
 
     return (
         <div className="flex flex-wrap justify-center items-center p-4 bg-gray-400">
             <SearchInput
                 name="book-search"
                 ariaLabel="Search for books"
+                value={queryString}
+                onSubmit={handleSubmit}
                 onChange={handleSearchChange}
             />
             <CTA
                 text="Search for books"
                 name="search-cta"
-                disabled={searchStatus !== 'idle'}
-                onClick={handleCTAClick}
+                disabled={searchStatus === 'loading'}
+                onClick={handleSubmit}
             />
         </div>
     )

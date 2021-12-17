@@ -15,5 +15,5 @@
 }
 
 .cta{
-    @apply flex justify-center items-center py-2 px-8 h-12 bg-primary text-gray-100 rounded-md mx-4 transition duration-200 hover:text-white outline-white hover:outline outline-2 opacity-90 hover:opacity-100;
+    @apply flex justify-center items-center py-2 px-8 h-12 bg-primary text-gray-100 rounded-md mx-4 transition duration-200 hover:text-white outline-white hover:outline outline-2;
 }
