@@ -13,7 +13,7 @@ const SearchInput = props => {
     const { value = "", name, ariaLabel, onChange, onSubmit, className = "" } = { ...props }
 
     const handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && typeof (onSubmit) === 'function') {
             onSubmit()
         }
     }
